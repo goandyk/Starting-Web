@@ -22,6 +22,7 @@ margin:0;
 padding:20px;
 }
 a {
+  text-weight:bold; color:grey;
   text-decoration:none;
 }
 @media(max-width:600px){

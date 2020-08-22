@@ -8,24 +8,31 @@
     <h1>Object</h1>
     <h2>Create</h2>
 <script>
-  var coworkers = {
-    "programmer" : "Miji",
-    "designer" : "Mirae"
-  };
-  document.write("programmer : "+coworkers.programmer+"<br>");
-  document.write("designer : "+coworkers.designer+"<br>");
-  coworkers.bookkeeper = "Juno";
-  coworkers.manager = "Ning";
-  document.write("bookkeeper : "+coworkers.bookkeeper+"<br>");
-  document.write("manager : "+coworkers.manager+"<br>");
-  coworkers["data scientiest"] = "Kimchi";
-  document.write("data scientiest : "+coworkers["data scientiest"]+"<br>");
+        var coworkers = {
+        "programmer" : "Miji",
+        "designer" : "Mirae"
+      };
+      document.write("programmer : "+coworkers.programmer+"<br>");
+      document.write("designer : "+coworkers.designer+"<br>");
+      coworkers.bookkeeper = "Ning";
+      document.write("bookkeeper : "+coworkers.bookkeeper+"<br>");
+      coworkers["data scientist"] = "Juno";
+      document.write("data scientist : "+coworkers["data scientist"]+"<br>");
     </script>
-<h2>Iterlate</h2>
+<h2>Iterate</h2>
 <script>
-  for ( var key in coworkers){
-    document.write(coworkers[key]+"<br>");
+  for(var key in coworkers){
+    document.write(key+" : "+coworkers[key]+"<br>")
   }
   </script>
-  </body>
+  <h2>property & method</h2>
+<script>
+    coworkers.showAll = function(){
+      for(var key in this){
+        document.write(key+" : "+this[key]+"<br>")
+    }
+  }
+  coworkers.showAll();
+    </script>
+      </body>
 </html>
