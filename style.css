@@ -9,17 +9,24 @@ ol {
   display:grid;
   grid-template-columns: 150px 1fr;
 }
-#grid ol{
+#grid ul{
   padding-left: 33px;
+
+
 }
 #grid #article{
   padding-left: 25px;
+
 }
 h1 {
-font-size:45px;text-align:center;
+font-size:60px;text-align:center;
 border-bottom:1px solid grey;
 margin:0;
 padding:20px;
+}
+ul {
+
+
 }
 a {
   text-weight:bold; color:grey;
