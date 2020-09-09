@@ -1,8 +1,8 @@
 
 ol {
-  border-right:1px solid grey;
+  border-right:2px solid grey;
   margin:0;
-  padding:20px;
+  padding:40px;
   width:100px;
 }
 #grid{
@@ -11,9 +11,13 @@ ol {
 }
 #grid ol{
   padding-left: 33px;
+  margin-top: auto;
+  border-right:1px solid grey;
+
 }
 #grid #article{
   padding-left: 25px;
+  margin-top: auto;
 }
 h1 {
 font-size:45px;text-align:center;
