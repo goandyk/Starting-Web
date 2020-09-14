@@ -9,7 +9,7 @@ ol {
   display:grid;
   grid-template-columns: 150px 1fr;
 }
-#grid ul{
+#grid ol{
   padding-left: 33px;
 }
 #grid #article{
@@ -20,11 +20,6 @@ font-size:45px;text-align:center;
 border-bottom:1px solid grey;
 margin:0;
 padding:20px;
-}
-ul {
-  font-size:18px;
-  margin:0;
-  padding:20px;
 }
 a {
   text-weight:bold; color:grey;
