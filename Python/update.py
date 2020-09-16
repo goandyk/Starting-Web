@@ -2,7 +2,20 @@
 print("content-type: texthtml; charset=utf-8\n")
 
 import cgi, os
+'''
+files = os.listdir('data')
+listStr = ''
+for item in files:
+    listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
 
+form = cgi.FieldStorage()
+if 'id' in form:
+    pageId = form.getvalue('id')
+    description = open('data/'+pageId, 'r').read()
+else:
+    pageId = 'Welcome'
+    description = 'Hello, web'
+'''
 files = os.listdir('data')
 listStr = ''
 for item in files:
@@ -12,11 +25,9 @@ form = cgi.FieldStorage()
 if 'id' in form:
     pageid = form.getvalue('id')
     description = open('data/'+pageid, 'r').read()
-    update_link = '<a href = "update.py?id={}">UPDATE</a>'
 else:
-    pageid = 'Welcome to the WE!'
+    pageid = 'Welcome to the WEB!'
     description = 'Hello Web'
-    update_link = ''
 
 print('''<!doctype html>
 <html>
@@ -29,21 +40,20 @@ print('''<!doctype html>
 </head>
 <body>
   <input id="Night_Day" type= "button" value ="Night" onclick="nightDayHandler(this);">
-
-    <p><h1><a href="index.py">WEB</a></h1></p>
-
+    <h1><a href="index.py">WEB</a></h1>
         <div id="grid">
         <ol>
         {listStr}
         </ol>
-    <a href = "create.py">CREATE</a>
-    {update_link}
         <div id="article">
-
-    <h2>{title}</h2>
-        <p>{desc}</p>
+    <h2><a href = "create.py?id=">CREATE</a></h2>
+    <form action = "process_create.py" method = "post">
+        <p><input type = "text"  name = "title" placeholder = "title"></p>
+        <p><textarea rows = "4"  name = "description" placeholder = "description"></textarea></p>
+        <p><input type = "submit"></p>
+    </form>
         </div>
         </div>
 </body>
 </html>
-'''.format(title=pageid, desc=description, listStr=listStr, update_link=update_link))
+'''.format(title=pageid, desc=description, listStr=listStr))
