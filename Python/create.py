@@ -39,8 +39,12 @@ print('''
     {listStr}
   </ul>
 <div id="article">
-<h2>{title}</h2>
-<p>{desc}</p>
+<a href = "create.py">CREATE</a>
+<form enctype="multipart/form-data" action="process_create.py" method="post">
+    <p><input type = "text" name = "title" placeholder = "title"></p>
+    <p><textarea rows = "4" name = "description" placeholder = "description"></textarea></p>
+    <p><input type = "submit"></p>
+</form>
   </div>
   </div>
   </body>
