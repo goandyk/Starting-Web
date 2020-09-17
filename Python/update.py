@@ -47,13 +47,14 @@ print('''<!doctype html>
         </ol>
         <div id="article">
     <h2><a href = "create.py?id=">CREATE</a></h2>
-    <form action = "process_create.py" method = "post">
-        <p><input type = "text"  name = "title" placeholder = "title"></p>
-        <p><textarea rows = "4"  name = "description" placeholder = "description"></textarea></p>
+    <form action = "process_update.py" method = "post">
+        <input = type ="hidden" name = "pageid" value = "{form_default_title}">
+        <p><input type = "text"  name = "title" placeholder = "title" value = "{form_default_title}"></p>
+        <p><textarea rows = "4"  name = "description" placeholder = "description">{form_default_description}</textarea></p>
         <p><input type = "submit"></p>
     </form>
         </div>
         </div>
 </body>
 </html>
-'''.format(title=pageid, desc=description, listStr=listStr))
+'''.format(title=pageid, desc=description, listStr=listStr, form_default_title=pageid, form_default_description=description))
