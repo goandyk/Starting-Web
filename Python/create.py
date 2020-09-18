@@ -1,13 +1,7 @@
-#!python
+#!C:\Users\66655\AppData\Local\Programs\Python\Python38-32\python.exe
 print("content-type:text/html; charset=UTF-8\n")
 
-import cgi
-import os
-files = os.listdir('data')
-
-listStr = ''
-for item in files:
-    listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+import cgi, os, view
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -49,4 +43,4 @@ print('''
   </div>
   </body>
 </html>
-'''.format(title=pageid, desc=description, listStr=listStr))
+'''.format(title=pageid, desc=description, listStr=view.getList()))
