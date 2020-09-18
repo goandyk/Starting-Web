@@ -1,26 +1,25 @@
-#!C:\Users\66655\AppData\Local\Programs\Python\Python38-32\python.exe
+#!Python
 print("content-type: texthtml; charset=utf-8\n")
 
 import cgi, os
-
 files = os.listdir('data')
-
 listStr = ''
 for item in files:
     listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
 
 form = cgi.FieldStorage()
 if 'id' in form:
-    pageid = form.getvalue('id')
+    pageid = form.getvalue("id")
     description = open('data/'+pageid, 'r').read()
     update_link = '<a href = "update.py?id={}">UPDATE</a>'.format(pageid)
     delete_action = '''
-<form action = "process_delete.py" method = "post">
-    <input type = "hidden" name = "pageid" value="{}">
-    <input type  = "submit" value = "DELETE">
+        <form action = "process_delete.py" method = "post">
+            <input type = "hidden" name = "pageid" value="{}">
+            <input type  = "submit" value = "DELETE">
+        </form>
     '''.format(pageid)
 else:
-    pageid = 'Welcome to the WE!'
+    pageid = 'Welcome to the WEB!'
     description = 'Hello Web'
     update_link = ''
     delete_action = ''
