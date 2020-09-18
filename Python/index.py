@@ -1,14 +1,16 @@
-#!Python
+#!C:\Users\goand\AppData\Local\Programs\Python\Python38-32\python.exe
 print("content-type: texthtml; charset=utf-8\n")
 
-import cgi, os, view
+import cgi, os, view, html_sanitizer
+sanitizer  = html_sanitizer.Sanitizer()
+
 form = cgi.FieldStorage()
 if 'id' in form:
     pageid = form.getvalue("id")
     description = open('data/'+pageid, 'r').read()
     #description = description.replace('<', '&lt;')
     #description = description.replace('>', '&gt;')
-
+    description = sanitizer.sanitize(description)
     update_link = '<a href = "update.py?id={}">UPDATE</a>'.format(pageid)
     delete_action = '''
         <form action = "process_delete.py" method = "post">
