@@ -1,4 +1,4 @@
-#!C:\Users\66655\AppData\Local\Programs\Python\Python38-32\python.exe
+#!Python
 print("content-type:text/html; charset=UTF-8\n")
 
 import cgi, os, view
