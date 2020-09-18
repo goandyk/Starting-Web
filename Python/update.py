@@ -1,7 +1,7 @@
 #!C:\Users\66655\AppData\Local\Programs\Python\Python38-32\python.exe
 print("content-type: texthtml; charset=utf-8\n")
 
-import cgi, os
+import cgi, os, view
 '''
 files = os.listdir('data')
 listStr = ''
@@ -16,10 +16,6 @@ else:
     pageId = 'Welcome'
     description = 'Hello, web'
 '''
-files = os.listdir('data')
-listStr = ''
-for item in files:
-    listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -57,4 +53,4 @@ print('''<!doctype html>
         </div>
 </body>
 </html>
-'''.format(title=pageid, desc=description, listStr=listStr, form_default_title=pageid, form_default_description=description))
+'''.format(title=pageid, desc=description, listStr=view.getList(), form_default_title=pageid, form_default_description=description))

@@ -1,18 +1,16 @@
 #!C:\Users\66655\AppData\Local\Programs\Python\Python38-32\python.exe
 print("content-type: texthtml; charset=utf-8\n")
 
-import cgi, os
-
-files = os.listdir('data')
-
-listStr = ''
-for item in files:
-    listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+import cgi, os, view, html_sanitizer
+sanitizer = html_sanitizer.Sanitizer()
 
 form = cgi.FieldStorage()
 if 'id' in form:
     pageid = form.getvalue('id')
     description = open('data/'+pageid, 'r').read()
+    #description = description.replace('<', '&lt;')
+    #description = description.replace('>', '&gt;')
+    description = sanitizer.sanitize(description)
     update_link = '<a href = "update.py?id={}">UPDATE</a>'.format(pageid)
     delete_action = '''
 <form action = "process_delete.py" method = "post">
@@ -54,4 +52,9 @@ print('''<!doctype html>
         </div>
 </body>
 </html>
-'''.format(title=pageid, desc=description, listStr=listStr, update_link=update_link, delete_action=delete_action))
+'''.format(
+title=pageid,
+desc=description,
+listStr=view.getList(),
+update_link=update_link,
+delete_action=delete_action))
