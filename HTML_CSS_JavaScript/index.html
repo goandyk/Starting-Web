@@ -16,12 +16,20 @@
 <h1><a href="#!welcome" onclick="fetchPage('welcome')">WEB</a></h1>
 
 <div id="grid">
+<<<<<<< Updated upstream
   <ul id="nav">
 
+=======
+  <ul>
+    <li><a href="#!html" onclick="fetchPage('html')">HTML</a></li>
+    <li><a href="#!css" onclick="fetchPage('css')">CSS</a></li>
+    <li><a href="#!javascript" onclick="fetchPage('javascript')">JavaScript</a></li>
+>>>>>>> Stashed changes
   </ul>
   <article>
 
   </article>
+<<<<<<< Updated upstream
 <script>
   function fetchPage(name){
     fetch(name).then(function(response){
@@ -49,6 +57,25 @@ if(location.hash){
       })
     });
 </script>
+=======
+<div id="article">
+
   </div>
+>>>>>>> Stashed changes
+  </div>
+  <script>
+  function fetchPage(name){
+    fetch(name).then(function(response){
+      response.text().then(function(text){
+        document.querySelector('article').innerHTML = text;
+      })
+    });
+  }
+  if(location.hash){
+    fetchPage(location.hash.substr(3));
+  } else {
+    fetchPage('welcome');
+  }
+  </script>
   </body>
 </html>
